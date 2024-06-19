@@ -4,19 +4,11 @@ sysThemeNames=("'Pop'" "'Pop-dark'" "'Pop-light'" "'Yaru'" "'Yaru-dark'" "'Yaru-
 themeNames=("pop" "pop" "pop" "yaru" "yaru" "yaru" "maia" "maia")
 
 firefoxInstallationPaths=(
-    # Firefox
-    ~/.mozilla/firefox # Package
-    ~/.var/app/org.mozilla.firefox/.mozilla/firefox # Flatpak
-    ~/snap/firefox/common/.mozilla/firefox # Snap
-
-    # Librewolf
-    ~/.librewolf # Package
-    ~/.var/app/io.gitlab.librewolf-community/.librewolf # Flatpak
-
-    # Floorp
-    ~/.floorp # Package
-    ~/.var/app/one.ablaze.floorp/.floorp # Flatpak
-    
+    ~/.mozilla/firefox
+    ~/.var/app/org.mozilla.firefox/.mozilla/firefox
+    ~/.librewolf
+    ~/.var/app/io.gitlab.librewolf-community/.librewolf
+    ~/snap/firefox/common/.mozilla/firefox
 )
 
 currentTheme=$(gsettings get org.gnome.desktop.interface gtk-theme ) || currentTheme=""

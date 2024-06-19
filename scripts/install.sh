@@ -38,51 +38,51 @@ function saveProfile(){
 	# Create single-line user CSS files if non-existent or empty.
 	if [ -s userChrome.css ]; then
 		# Remove older theme imports
-		sed 's/@import "firefox-gnome-theme.*.//g' userChrome.css | sed '/^\s*$/d' > tmpfile && mv tmpfile userChrome.css
+		sed 's/@import "firefox-new-gnome-theme.*.//g' userChrome.css | sed '/^\s*$/d' > tmpfile && mv tmpfile userChrome.css
 		echo >> userChrome.css
 	else
 		echo >> userChrome.css
 	fi
 
 	# Import this theme at the beginning of the CSS files.
-	sed -i '1s/^/@import "firefox-gnome-theme\/userChrome.css";\n/' userChrome.css
+	sed -i '1s/^/@import "firefox-new-gnome-theme\/userChrome.css";\n/' userChrome.css
 
 	if [ "$THEME" = "DEFAULT" ]; then
 		echo "No theme set, using default adwaita." >&2
 	else
 		echo "Setting $THEME theme." >&2
-		echo "@import \"firefox-gnome-theme\/theme/colors/light-$THEME.css\";" >> userChrome.css
-		echo "@import \"firefox-gnome-theme\/theme/colors/dark-$THEME.css\";" >> userChrome.css
+		echo "@import \"firefox-new-gnome-theme\/theme/colors/light-$THEME.css\";" >> userChrome.css
+		echo "@import \"firefox-new-gnome-theme\/theme/colors/dark-$THEME.css\";" >> userChrome.css
 	fi
 
 	# Create single-line user content CSS files if non-existent or empty.
 	if [ -s userContent.css ]; then
 		# Remove older theme imports
-		sed 's/@import "firefox-gnome-theme.*.//g' userContent.css | sed '/^\s*$/d' > tmpfile1 && mv tmpfile1 userContent.css
+		sed 's/@import "firefox-new-gnome-theme.*.//g' userContent.css | sed '/^\s*$/d' > tmpfile1 && mv tmpfile1 userContent.css
 		echo >> userContent.css
 	else
 		echo >> userContent.css
 	fi
 
 	# Import this theme at the beginning of the CSS files.
-	sed -i '1s/^/@import "firefox-gnome-theme\/userContent.css";\n/' userContent.css
+	sed -i '1s/^/@import "firefox-new-gnome-theme\/userContent.css";\n/' userContent.css
 
 	if [ "$THEME" = "DEFAULT" ]; then
 		echo "No theme set, using default adwaita." >&2
 	else
 		echo "Setting $THEME theme."
-		echo "@import \"firefox-gnome-theme\/theme/colors/light-$THEME.css\";" >> userContent.css
-		echo "@import \"firefox-gnome-theme\/theme/colors/dark-$THEME.css\";" >> userContent.css
+		echo "@import \"firefox-new-gnome-theme\/theme/colors/light-$THEME.css\";" >> userContent.css
+		echo "@import \"firefox-new-gnome-theme\/theme/colors/dark-$THEME.css\";" >> userContent.css
 	fi
 
 	cd ..
 
 	echo "Set configuration to user.js file" >&2
 
-	mapfile -t theme_prefs < <( grep "user_pref" chrome/firefox-gnome-theme/configuration/user.js )
-	mapfile -t theme_prefs_unvalued < <( grep "user_pref" chrome/firefox-gnome-theme/configuration/user.js|cut -d'"' -f 2 )
+	mapfile -t theme_prefs < <( grep "user_pref" chrome/firefox-new-gnome-theme/configuration/user.js )
+	mapfile -t theme_prefs_unvalued < <( grep "user_pref" chrome/firefox-new-gnome-theme/configuration/user.js|cut -d'"' -f 2 )
 	if [ ! -f "user.js" ]; then
-		mv chrome/firefox-gnome-theme/configuration/user.js .
+		mv chrome/firefox-new-gnome-theme/configuration/user.js .
 	else
 		cp user.js user.js.bak
 		OLDIFS=$IFS

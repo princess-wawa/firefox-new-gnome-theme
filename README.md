@@ -2,9 +2,7 @@
 
 # Firefox GNOME theme
 
-[![GitHub](https://img.shields.io/github/license/rafaelmardojai/firefox-gnome-theme.svg)](https://github.com/rafaelmardojai/firefox-gnome-theme/blob/master/LICENSE)
-[![Donate](https://img.shields.io/badge/PayPal-Donate-gray.svg?style=flat&logo=paypal&colorA=0071bb&logoColor=fff)](https://paypal.me/RafaelMardojaiCM)
-[![Liberapay](https://img.shields.io/liberapay/receives/rafaelmardojai.svg?logo=liberapay)](https://liberapay.com/rafaelmardojai/donate)
+[![original GitHub](https://img.shields.io/github/license/rafaelmardojai/firefox-gnome-theme.svg)](https://github.com/rafaelmardojai/firefox-gnome-theme/blob/master/LICENSE)
 
 <br>
 
@@ -12,48 +10,16 @@
 
 This theme follows latest GNOME Adwaita style.
 
-> [!WARNING]
 > ### Disclaimer:
 > Be aware that this theme might do things that are not supported by upstream Firefox. If you face an issue while using this theme, report it here first or test if it is reproducible in vanilla Firefox.
 >
-> If you are a software distribution maintainer, please do not ship these changes by default to your users unless you make it extremely clear that they are using a modified version of the Firefox UI.
+> If you are a software distribution maintainer, please do not ship this changes by default to your users unless you made extremely clear that they are using a modified version of Firefox UI.
 
-![Screenshot of the theme](screenshot.png)
+![Screenshot of the theme](Screenshot.png)
 
 ## Description
 
 This is a bunch of CSS code to make Firefox look closer to GNOME's native apps.
-
-### Getting in Touch
-
-Matrix room: [#firefox-gnome-theme:matrix.org](https://matrix.to/#/#firefox-gnome-theme:matrix.org)
-
-### Firefox versions support
-
-The `master` branch of this repo supports the current Firefox stable release `126`.
-
-Theme versions compatible with older Firefox releases are preserved as git tags.
-
-We also have the `beta` and `nightly` branches for fixes only applicable to the current Firefox beta and nightly versions.
-
-# Installation
-
-## Package managers
-
-### Arch Linux
-
-1. Install the [AUR package](https://aur.archlinux.org/packages/firefox-gnome-theme) `firefox-gnome-theme` 
-2. Follow the instructions at `cat /usr/share/doc/firefox-gnome-theme/INSTALL.md`
-
-## One command install with curl
-
-To install this theme, you can run this command, which uses *curl* to download a script that will also download the latest released version of the theme (not the master version) and run the **auto-install** script for you.
-
-> **Warning**: Always be careful when running scripts from the Internet.
-
-```sh
-curl -s -o- https://raw.githubusercontent.com/rafaelmardojai/firefox-gnome-theme/master/scripts/install-by-curl.sh | bash
-```
 
 ## Installation scripts
 
@@ -64,16 +30,9 @@ First you need to grab a fresh copy of the theme repository by cloning it with g
 1. Clone this repo and enter folder:
 
 	```sh
-	git clone https://github.com/rafaelmardojai/firefox-gnome-theme.git
-	cd firefox-gnome-theme
+	git clone https://github.com/princess-wawa/firefox-new-gnome-theme.git
+	cd firefox-new-gnome-theme
 	```
-2. Checkout a git branch or tag if needed, otherwise use `master` and ignore this step.
-	```sh
-	git checkout beta # Set beta branch
-	git checkout v78.1 # Set v78.1 tag
-	```
-
-This theme provides two installation scripts in addition to the curled one.
 
 ### Auto install script
 
@@ -123,59 +82,7 @@ If you want to checkout the theme version tag matching you Firefox version you c
 ```sh
 git checkout v$(firefox --version | cut -d ' ' -f 3 | cut -d '.' -f 1) # Using Firefox version
 ```
-</details>
-
-<details>
-    <summary>Manual installation</summary>
-  
-## Manual installation
-
-1. Go to `about:support` in Firefox.
-
-2. Application Basics > Profile Directory > Open Directory.
-
-3. Open directory in a terminal.
-
-4. Create a `chrome` directory if it doesn't exist:
-
-    ```sh
-    mkdir -p chrome
-    cd chrome
-    ```
-
-5. Clone this repo to a subdirectory:
-
-    ```sh
-    git clone https://github.com/rafaelmardojai/firefox-gnome-theme.git
-    ```
-
-6. Create single-line user CSS files if non-existent or empty (at least one line is needed for `sed`):
-
-    ```sh
-    [[ -s userChrome.css ]] || echo >> userChrome.css
-    [[ -s userContent.css ]] || echo >> userContent.css
-    ```
-
-7. Import this theme at the beginning of the CSS files (all `@import`s must come before any existing `@namespace` declarations):
-
-    ```sh
-    sed -i '1s/^/@import "firefox-gnome-theme\/userChrome.css";\n/' userChrome.css
-    sed -i '1s/^/@import "firefox-gnome-theme\/userContent.css";\n/' userContent.css
-    ```
-
-8. Symlink preferences file:
-
-    ```sh
-    cd .. # Go back to the profile directory
-    ln -fs chrome/firefox-gnome-theme/configuration/user.js user.js
-    ```
-
-9. Restart Firefox.
-
-10. Open Firefox customization panel and move the new tab button to headerbar.
-
-11. Be happy with your new gnomish Firefox.
-</details>
+</detail>
 
 ## Required Firefox preferences
 We provide a **user.js** configuration file in `configuration/user.js` that enable some preferences required by this theme to work.
@@ -192,9 +99,37 @@ You should already have this file installed if you followed one of the installat
 
 > For other non essential preferences checkout `configuration/user.js`.
 
-## Updating
+## for the sidebar i recommend using [Tree Style Tab](https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/)
+with this custom css in the advanced section
+```css
+body {
+    font-weight: bold;
+}
 
-You can follow the installation script steps again to update the theme.
+tab-item:hover {
+  --tab-margin-left: 10px;
+    box-shadow: none
+}
+:root.left tab-item:hover tab-closebox {
+  visibility: visible;
+}
+
+:root.left tab-item tab-closebox {
+  visibility: hidden;
+}
+
+tab-item{
+  --tab-margin-bottom: -6px;
+}
+
+tab-item tab-item-substance{
+  height:45px;
+}
+ 
+tab-item.active .background {
+  box-shadow: none;
+}
+```
 
 ## Uninstalling
 1. Go to your profile folder. (Go to `about:support` in Firefox > Application Basics > Profile Directory > Open Directory)
@@ -269,11 +204,6 @@ Optional features can be enabled by creating new `boolean` preferences in `about
 	
 	> **Note:** Enabling with `gnomeTheme.hideSingleTab` will replace the single tab with a title bar.
 
-- **OLED black theme** `gnomeTheme.oledBlack`
-
-	Change the dark theme into the black variant.
-	
-
 ### Extensions support
 
 We also have optional features to enable support for some Firefox extensions.
@@ -333,7 +263,5 @@ Feel free to use any parts of my code to develop your own themes, I don't force
 any specific license on your code.
 
 ## Credits
-Developed by **[Rafael Mardojai CM](https://github.com/rafaelmardojai)** and [contributors](https://github.com/rafaelmardojai/firefox-gnome-theme/graphs/contributors). Based on **[Luna Kurame](https://github.com/lunakurame/firefox-gnome-theme)**'s original work.
+Developed by **[Rafael Mardojai CM](https://github.com/rafaelmardojai)** and [contributors](https://github.com/rafaelmardojai/firefox-gnome-theme/graphs/contributors). Based on **[Luna Kurame](https://github.com/lunakurame/firefox-gnome-theme)**'s original work, modified by **[princess-wawa](https://github.com/princess-wawa)**
 
-## Donate
-If you want to support development, consider donating via [PayPal](https://paypal.me/RafaelMardojaiCM). Also consider donating upstream, [Firefox](https://donate.mozilla.org/) & [GNOME](https://www.gnome.org/support-gnome/).
