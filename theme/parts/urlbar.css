@@ -8,7 +8,7 @@
 }
 
 #urlbar-container {
-	--urlbar-container-height: 34px !important;
+	--urlbar-container-height: 0 !important;
 }
 
 /* Center the URL bar */
@@ -147,12 +147,6 @@ toolbarspring {
 }
 #notification-popup-box {
 	height: 100%  !important;
-}
-
-@media (-moz-bool-pref: "browser.urlbar.richSuggestions.featureGate") {
-	#urlbar:not(.searchButton) > #urlbar-input-container > #identity-box[pageproxystate="invalid"] > .identity-box-button {
-		margin-inline-start: 2px;
-	}
 }
 
 /* Search mode indicator */

@@ -127,3 +127,9 @@
 #urlbar[focused="true"]:not([suppress-focus-border]) > #urlbar-background {
 	outline: 0 !important;
 }
+
+#urlbar[breakout][breakout-extend] {
+	> #urlbar-input-container {
+	  height:35px !important; 
+	}
+  }
