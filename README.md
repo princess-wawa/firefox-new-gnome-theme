@@ -72,33 +72,6 @@ Here are some examples of how to use it:
 	- Default: Adwaita.
 	- Options: `adwaita`, `maia`.
 
-<details>
-    <summary>Advanced notes</summary>
-  
-### Advanced notes
-
-If you want to checkout the theme version tag matching you Firefox version you can run:
-
-```sh
-git checkout v$(firefox --version | cut -d ' ' -f 3 | cut -d '.' -f 1) # Using Firefox version
-```
-</detail>
-
-## Required Firefox preferences
-We provide a **user.js** configuration file in `configuration/user.js` that enable some preferences required by this theme to work.
-
-You should already have this file installed if you followed one of the installation methods, but in any case be sure this preferences are enabled under `about:config`:
-
-- `toolkit.legacyUserProfileCustomizations.stylesheets`
-
-	This preference is required to load the custom CSS in Firefox, otherwise the theme wouldn't work.
-
-- `svg.context-properties.content.enabled`
-
-	This preference is required to recolor the icons, otherwise you will get black icons everywhere.
-
-> For other non essential preferences checkout `configuration/user.js`.
-
 ## for the sidebar i recommend using [Tree Style Tab](https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/)
 with this custom css in the advanced section
 ```css
@@ -130,6 +103,35 @@ tab-item.active .background {
   box-shadow: none;
 }
 ```
+
+
+<details>
+    <summary>Advanced notes</summary>
+  
+### Advanced notes
+
+If you want to checkout the theme version tag matching you Firefox version you can run:
+
+```sh
+git checkout v$(firefox --version | cut -d ' ' -f 3 | cut -d '.' -f 1) # Using Firefox version
+```
+</detail>
+
+## Required Firefox preferences
+We provide a **user.js** configuration file in `configuration/user.js` that enable some preferences required by this theme to work.
+
+You should already have this file installed if you followed one of the installation methods, but in any case be sure this preferences are enabled under `about:config`:
+
+- `toolkit.legacyUserProfileCustomizations.stylesheets`
+
+	This preference is required to load the custom CSS in Firefox, otherwise the theme wouldn't work.
+
+- `svg.context-properties.content.enabled`
+
+	This preference is required to recolor the icons, otherwise you will get black icons everywhere.
+
+> For other non essential preferences checkout `configuration/user.js`.
+
 
 ## Uninstalling
 1. Go to your profile folder. (Go to `about:support` in Firefox > Application Basics > Profile Directory > Open Directory)
