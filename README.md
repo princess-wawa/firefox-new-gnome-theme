@@ -1,3 +1,5 @@
+# don't use that theme it's broken half the time
+
 <img src="icon.svg" alt="Firefox GNOME theme" width="128" align="left"/>
 
 # Firefox GNOME theme
